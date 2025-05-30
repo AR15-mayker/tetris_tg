@@ -1,6 +1,6 @@
-import asyncio
 from loguru import logger
 from dotenv import find_dotenv, load_dotenv
+from input_handler import handle_input
 
 load_dotenv(find_dotenv())
 
@@ -12,8 +12,9 @@ logger.add(
 )
 
 
-async def main():
+def main():
     try:
+        handle_input()
         logger.info("Запущено")
     except Exception as e:
         logger.error(f"Ошибка при запуске: {e}")
@@ -21,7 +22,7 @@ async def main():
 
 if __name__ == "__main__":
     try:
-        asyncio.run(main())
+        main()
     except KeyboardInterrupt:
         logger.info("Остановлено вручную")
     except Exception as e:

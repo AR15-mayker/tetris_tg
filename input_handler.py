@@ -1,5 +1,6 @@
 import pygame
 
+
 def handle_input():
     move_left = False
     move_right = False
