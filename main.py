@@ -14,15 +14,15 @@ logger.add(
 
 async def main():
     try:
-        logger.info("Бот запущен")
+        logger.info("Запущено")
     except Exception as e:
-        logger.error(f"Ошибка при запуске бота: {e}")
+        logger.error(f"Ошибка при запуске: {e}")
 
 
 if __name__ == "__main__":
     try:
         asyncio.run(main())
     except KeyboardInterrupt:
-        logger.info("Бот остановлен вручную")
+        logger.info("Остановлено вручную")
     except Exception as e:
         logger.critical(f"Критическая ошибка: {e}")
