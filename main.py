@@ -1,8 +1,5 @@
 from loguru import logger
-from dotenv import find_dotenv, load_dotenv
 from input_handler import handle_input
-
-load_dotenv(find_dotenv())
 
 logger.add(
     "file.log",
