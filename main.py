@@ -1,8 +1,5 @@
-import os
 import asyncio
 from loguru import logger
-from aiogram import Bot, Dispatcher
-from aiogram.fsm.storage.memory import MemoryStorage
 from dotenv import find_dotenv, load_dotenv
 
 load_dotenv(find_dotenv())
@@ -14,18 +11,13 @@ logger.add(
     retention="30 days"
 )
 
-bot = Bot(token=os.getenv('TOKEN'))
-dp = Dispatcher(storage=MemoryStorage())
-
 
 async def main():
     try:
         logger.info("Бот запущен")
-        await dp.start_polling(bot)
     except Exception as e:
         logger.error(f"Ошибка при запуске бота: {e}")
-    finally:
-        await (await bot.get_session()).close()
+
 
 if __name__ == "__main__":
     try:
