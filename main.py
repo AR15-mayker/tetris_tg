@@ -1,5 +1,6 @@
 from loguru import logger
 from input_handler import handle_input
+from renderer import Renderer
 
 logger.add(
     "file.log",
@@ -11,6 +12,8 @@ logger.add(
 
 def main():
     try:
+        Renderer()
+
         handle_input()
         logger.info("Запущено")
     except Exception as e:
